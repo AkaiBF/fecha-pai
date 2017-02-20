@@ -6,6 +6,9 @@
  * @author Ernesto Echeverría González
  * @version 0.0.1
  * @since 17-02-2017
+ * 
+ * For further information contact the author via e-mail:
+ * alu0100881622@ull.edu.es
 */
 public class Fecha {
   private int day;
@@ -116,7 +119,7 @@ public class Fecha {
           monthcode = 6;
         break;
       }  
-    } int weekday = (day + monthcode + (year/4) + (year/100 +1))%7;
+    } int weekday = (day + monthcode + (year%100) + ((year%100)/4) + (year/100 +1))%7;
     switch(weekday) {
       case 0:
         return "Sábado";
@@ -145,7 +148,7 @@ public class Fecha {
   
   /*
   public void setAnio() {
-    
+    //Comprobar que el año está entre dos valores o enviar excepción
   }
   
   public void setMes() {
@@ -223,7 +226,6 @@ public class Fecha {
     String output = new String(getDiaDeSemana() + ", " + day + " de " + stringMonth + " de " + year);
     return output;
   }
-  
   
   public Fecha siguienteDia() {
     Fecha next = new Fecha(day + 1, month, year);
